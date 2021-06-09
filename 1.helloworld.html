@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1.helloworld</title>
+
+    <style>
+        body {
+            padding: 50px;
+        }
+
+        h1 {
+            color: red;
+        }
+
+        .box {
+            background-color: royalblue;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Hello World</h1>
+    <div class="box"></div>
+
+
+    <script src="./jquery-3.6.0.js">
+    </script>
+
+    <script>
+
+        //在這個標籤裡面才能執行
+        //要用JQ之前，記得先引用，順序很重要
+
+        $('h1').css('color', 'blue');
+        $('.box').css('background-color', 'red');
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .box {
+            width: 100px;
+            height: 50px;
+            background-color: rgb(47, 185, 185);
+            margin: 20px;
+        }
+
+        span {
+            font-size: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <span>123</span>
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+        <div class="box">box6</div>
+    </div>
+    <div class="wrap">
+        <span>456</span>
+    </div>
+
+    <span>666</span>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('.box:first-child').css('background-color', 'red');
+        //必須是長子才能符合，長子變為span
+        $('.box:last-child').css('background-color', 'yellow');
+
+        //$('.wrap:first-child').css('background-color', 'grey');
+        //body的第一個小孩
+
+        $('span:first-of-type').css('color', 'red');
+        //選取同類第一個，在body裡面的第一個所以666也會被選到
+        $('span:last-of-type').css('color', 'green');
+        //是第一個也是最後一個
+
+        //架構粉重要
+
+        $('.box:nth-child(2)').css('background-color', 'yellow');
+        //css屬性從1開始算，所以123是第一個，第二個才是box1
+
+        $('.box:nth-last-child(2)').css('background-color', 'pink');
+        $('.box:nth-of-type(2)').css('background-color', 'darkblue');
+        $('.box:nth-of-type(2)').css('color', 'white');
+
+
+        $('span:only-child').css('color', 'tomato');
+        //獨生子（不管是什麼屬性，只有一個）
+
+        $('span:only-type').css('color', 'red');
+        //全種問題其他要註解，才會顯現，選取家族裡面同一個type的，所以所有span都會選到
+
+    </script>
+</body>
+
+</html>
