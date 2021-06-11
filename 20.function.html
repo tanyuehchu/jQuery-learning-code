@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        //函式名稱
+        function aaa() {
+            console.log('hello');
+        }
+
+        aaa();
+
+        //匿名函式
+        //通常用在只執行一次，而且會立即執行（後面帶小括號）
+        (function () {
+            console.log('no name');
+        })();
+
+        //ES6 宣告函式的方式改變，用const宣告一個匿名函式名稱
+        const def = function () {
+            console.log('def');
+        };
+
+        def();
+
+        //funtion 後面的()，用處是什麼
+        //()裡面是用來傳遞參數使用的
+        //加法的函式
+
+        function myfunc(a, b) {
+            console.log(a);
+            console.log(b);
+            console.log(a + b);
+        }
+
+        myfunc(123, 456);
+        myfunc(3323232, 443343);
+
+        //return 回傳，把一個計算後的結果傳回去
+        //所以我們必須要有一個變數去承接這個回傳結果
+
+        function returnAddResult(a, b) {
+            return (a + b);
+        }
+
+        const ans = returnAddResult(3, 4);
+        console.log(ans);
+        const ans2 = returnAddResult(22, 20);
+        console.log(ans2);
+        console.log(ans + ans2);
+
+        //ES6 箭頭函式，用() => 來表示 function 的簡稱
+        // jQuery不接受箭頭函式寫法
+
+    </script>
+</body>
+
+</html>

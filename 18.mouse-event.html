@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body>
+    <button class="btn btn-dark text-light">button</button>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('.btn').click(function () { console.log('click') })
+        $('.btn').dblclick(function () { console.log('dblclick') })
+        //快速點擊兩次，會觸發一次dbclick，兩次click
+        $('.btn').contextmenu(function () { console.log('contextmenu') })
+
+        //單純執行一次命令
+        //如要重複執行，就要包在funtion()裡
+        console.log('dblclick1');
+
+        // function () {
+        //     console.log('dblclick2');
+        //     $('.btn').contextmenu(function () {
+        //         console.log('contextmenu');
+        //     })
+        // }
+
+        //綁定監聽器，如何運作
+        $('.btn').dblclick(function () {
+            console.log('dblclick2');
+            //還沒執行dblclick事件的funtion之前
+            //不會綁定這個事件到.btn身上
+            //要等雙擊後才能按右鍵
+
+            $('.btn').contextmenu(function () {
+                console.log('contextmenu');
+            })
+
+        });
+
+        //滑鼠按住不放
+        $('.btn').mousedown(function () {
+            console.log('mousedown');
+        });
+
+        //滑鼠放開（移開再放不算）
+        $('.btn').mouseup(function () {
+            console.log('mouseup');
+        });
+
+        //down跟up填寫順序沒差
+
+        $('.btn').mouseenter(function () {
+            console.log('mouseenter');
+        });
+
+        $('.btn').mouseleave(function () {
+            console.log('mouseleave');
+            $(this).css('background', 'red')
+        });
+
+        $('.btn').hover(function () {
+            console.log('hover');
+        });
+
+
+        //hover+mouseleave
+
+        // $('.btn').hover(function () {
+        //     console.log('hover in');
+        // }, function(){
+        //     console.log('hover leave')
+        // });
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

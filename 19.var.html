@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // Hoist 提昇 
+        //因為順序很重要所以在ES6中特別強調
+        //必須先宣告，才能開始使用這個變數
+
+        console.log(a); //未初始化
+        console.log(x); //not defined（var會提昇,let不會）
+
+        //ES5 變數宣告是用 var 來宣告
+        var x = 10;
+        var y = 'hello'
+
+        //ES6 變數宣告從 var 分解成兩個： 1.let 2.const
+
+        let a = 10;
+        const b = 'hello';
+
+        //let v.s const
+        //可重新賦值 v.s 不可重新賦值
+
+        a = 60;
+        b = 66;//(不可重新賦值)
+
+        //JS 是一個弱型態語言
+        //資料型態有三種：1.字串 , 2.數字 , 3布林值(T/F)
+
+        //const:寫程式的時候，害怕資料型態被改變造成bug，除非這個變數會一直改變，那就用let宣告
+
+    </script>
+</body>
+
+</html>
