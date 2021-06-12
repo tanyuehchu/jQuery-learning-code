@@ -34,8 +34,9 @@
     <script>
         $('img').click(function () {
             console.log('hi', $(this));
-            $(this).css('', '');
-        });
+            $(this).css('border', '4px solid red');
+            $(this).parent().siblings().children().css('border', 'none');
+        })
     </script>
 </body>
 

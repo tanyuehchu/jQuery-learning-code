@@ -69,7 +69,7 @@
     <script>
         $('input').click(function () {
             console.log('hi', $(this));
-            $('this').css('background', 'red')
+            $(this).parent().parent().css('background', 'lightblue');
         });
     </script>
     <!----------------------------------end!------------------------------------------------->
