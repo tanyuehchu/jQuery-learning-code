@@ -68,9 +68,44 @@
 
     <script>
         $('input').click(function () {
-            console.log('hi', $(this));
-            $(this).parent().parent().css('background', 'lightblue');
+            //console.log('hi', $(this));
+            // $(this).parent().parent().css('background', 'lightblue');
+
+
+            //attr 屬性，看html上的屬性標籤，通常用在預設
+            console.log('$(this).attr("checked"):', $(this).attr('checked'));
+
+            // prop (property)狀態，判斷現在畫面是否為checked
+
+            console.log('$(this).prop("checked"):', $(this).prop("checked"));
+
+            //if / else
+
+            if ($(this).prop("checked")) {
+                $(this).closest('tr').css('background', 'lightblue')
+                console.log('true');
+            }
+            else {
+                console.log('false');
+                $(this).closest('tr').css(
+                    'background', 'transparent'
+                )
+            }
         });
+
+        //this v.s $(this)
+        //$(this)->jQuery物件，可使用jQuery方法
+        //this->原生Js使用
+        //兩個物件是不相通的
+
+        //方法二
+        // $('input').click(function () {
+        //     // 1.全部的tr都改成透明的
+        //     $('tr').css('background', 'transparent');
+        //     // 2.把打勾的 tr 都變藍色的
+        //     $('input:checked').closest('tr').css('background', 'lightblue');
+        // })
+
     </script>
     <!----------------------------------end!------------------------------------------------->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

@@ -35,7 +35,7 @@
         def();
 
         //funtion 後面的()，用處是什麼
-        //()裡面是用來傳遞參數使用的
+        //()裡面是用來傳遞參數使用的，不傳就空白
         //加法的函式
 
         function myfunc(a, b) {
@@ -62,6 +62,27 @@
 
         //ES6 箭頭函式，用() => 來表示 function 的簡稱
         // jQuery不接受箭頭函式寫法
+
+        function normalFunc() {
+            console.log('normalfunc');
+        };
+
+        //等同寫法
+
+        const normalFunc = function () {
+            console.log('normalfunc');
+        }
+
+        const normalFunc = () => {
+            console.log('normalfunc');
+        }
+
+        normalFunc();
+
+        //箭頭函式的return如果只有一行，可省略
+
+        const myAdd = (a, b) => a + b;
+        console.log(myAdd(5, 6));
 
     </script>
 </body>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const myArray = ['資料一', '資料二', '資料三', '資料四', '資料五']
+        console.log(myArray);
+
+        //索引
+        console.log(myArray[3]);
+
+        const districtArray = [
+            ['七堵', '中正', '暖暖'],
+            ['中正', '大安', '信義'],
+            ['蘆洲', '三重', '新店'],
+        ];
+        console.log('districtArray', districtArray);
+        console.log(districtArray[2]);
+
+        //索引陣列裡的陣列
+        console.log(districtArray[0][0]);
+
+        //關於陣列，JS裡有很多方法(Method)可用
+        //通常是為了處理陣列裡的每一筆資料
+        //for each , map , filter,...
+
+        //  forEach 針對陣列跑回圈
+        //  資料幾筆，就執行幾次
+        //  element 每次回圈拿一筆資料
+        //  這個例子會執行三次
+        districtArray.forEach(function (element) {
+            console.log('element :', element);
+
+            element.forEach(function (item) {
+                console.log(item);
+            })
+            //拿取item裡的資料（item只是變數）
+        });
+    </script>
+</body>
+
+</html>

@@ -14,13 +14,6 @@
     <div class="container">
         <div class="row">
             <form>
-                <h1>我的表單</h1>
-                <div class="form-group">
-                    <label for="exampleInputUsername">Username</label>
-                    <!-- input 的所有資訊都在屬性(attribute)裡面 -->
-                    <input type="text" class="form-control" id="exampleInputUsername" aria-describedby="usernameHelp"
-                        placeholder="Enter your name">
-                </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -36,37 +29,41 @@
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
                     <label class="form-check-label" for="exampleCheck1">Check me out</label>
                 </div>
-                <button type="button" class="btn btn-info auto-input">Auto Input</button>
-                <button type="submit" class="btn btn-primary submit">Submit</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
+
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script>
-        //新增一個事件監聽器
-        $('.auto-input').click(function () {
+        $('form').submit(function () {
+            event.preventDefault();
             console.log('hi');
-            $('#exampleInputUsername').val('jack');
-            $('#exampleInputEmail1').val('hahaha@gmail.com');
-            $('#exampleInputPassword1').val('dhjshdaj')
 
+            //預設傳給自己所以畫面會閃一下
+            //阻止表單的預設行為，使用ajax技術自己把表單寄給伺服器（後端）
+            //好處是畫棉不會閃一下(reload)
+            //因為ＪＳ改變畫面DOM節點，可以不用重新整理
         })
 
-        //點擊checkbox，顯示密碼
+        //點擊表格輸入框
+        $('input').focus(function () {
+            console.log('focus');
+        })
+        //點擊表格輸入框後，往外點一下
+        $('input').blur(function () {
+            console.log('blur');
+        })
 
-        $('#exampleCheck1').click(function () {
-            console.log('hi');
-            if ($(this).prop("checked")) {
-                console.log('true');
-                $('#exampleInputPassword1').attr('type', 'text');
-            }
-            else {
-                console.log('false');
-                $('#exampleInputPassword1').attr('type', 'password');
-            }
+        //修改/編輯輸入框內的值
+        $('input').change(function () {
+            console.log('change');
         })
     </script>
+
 </body>
+
+
 
 </html>
