@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 300vh;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+
+        //window是特殊字，直接代表瀏覽器（不用透過選擇器選取）
+        //scroll bar的頂端到螢幕的距離
+        $(window).scroll(function () {
+            console.log('hi', $(window).scrollTop(), $(window).scrollLeft());
+        })
+
+        $(window).resize(function () {
+            console.log('hi', $(window).width());
+            console.log('hi', $(window).height());
+
+        })
+    </script>
+</body>
+
+</html>

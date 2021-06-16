@@ -34,7 +34,7 @@
         //  forEach 針對陣列跑回圈
         //  資料幾筆，就執行幾次
         //  element 每次回圈拿一筆資料
-        //  這個例子會執行三次
+        //  這個例子會執行三次，總共拿三次element
         districtArray.forEach(function (element) {
             console.log('element :', element);
 
@@ -43,7 +43,48 @@
             })
             //拿取item裡的資料（item只是變數）
         });
+
+
+        //基本迴圈形式
+        for (var i = 0; i < 3; i++) {
+            console.log('i', districtArray[i]);
+            for (var j = 0; j < 3; j++) {
+                console.log('j', districtArray[i][j]);
+            }
+        }
+
+        //如果知道要跑的次數（陣列的長度有幾筆）
+        //設定條件的地方，會改成[陣列的長度](array.length)
+        for (var i = 0; i < districtArray.length; i++) {
+
+            console.log('i', districtArray[i]);
+
+            for (var j = 0; j < districtArray[i].length; j++) {
+
+                console.log('j', districtArray[i][j]);
+            }
+        }
+
+
+        //非同步
+        //JS 是單執行緒（一次只執行一行），如果中間被阻擋，後面就不會再執行
+        //在需要等待的時候，為了不阻礙執行流程，我們會把這件事丟給瀏覽器提供的API
+        //最常見的事SetTimeout,SetInterval,Ajax
+
+        // setTimeout(() => {
+        //     console.log('hi');
+        // }, 3000);   //三秒後再做
+
+        //基本迴圈形式＋setTimeout
+        for (var i = 0; i < 3; i++) {
+            setTimeout(() => {
+                console.log('i', i);
+            }, 3000);
+        }
+
     </script>
+
+
 </body>
 
 </html>
