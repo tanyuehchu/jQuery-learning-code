@@ -119,18 +119,21 @@
     <script>
 
         let nowPage = 0;
-        $('.slider-dots li').eq(nowPage).css('background', 'white');
+        console.log('nowPage', nowPage); //這時nowpage是0，是為了下面那一行事件而寫
+        $('.slider-dots li').eq(nowPage).css('background', 'white');    //nowpage=0,背景是白色
 
         $('.slider-dots li').hover(function () {
-            console.log('hi');
+            console.log('hi:', $(this));
             console.log('li index : ', $(this).index() * -800 + 'px');
+            console.log('nowpage:', $(this).index());
 
 
-            //nowPage = $(this).index();
+            nowPage = $(this).index();
+            console.log('nowPage', nowPage); //這時nowpage是$(this).index()
             changePage();
 
-            // const positionX = $(this).index() * -800;
-            // $(this).css('background', 'white').siblings().css('background', 'transparent')
+            //const positionX = $(this).index() * -800;
+            //$(this).css('background', 'white').siblings().css('background', 'transparent')
 
             //  在ES5的時候字串相加，用運算符號＋把字串連在一起
             //$('.img-wrap').css('transform', 'translate(' + positionX + 'px)');
@@ -164,8 +167,11 @@
             if (nowPage == 0) return;
 
             // 以下，就是要執行的程式碼。
+
             nowPage = nowPage - 1;
-            console.log('nowPage', nowPage);
+            console.log('nowPage', nowPage);    //這時nowpage是nowPage - 1
+            //就是 $(this).index()-1
+            //nowpage=0已經被覆蓋
 
 
             // const positionX = nowPage * -800;

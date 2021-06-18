@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+        }
+
+        .box.active {
+            transition: .5s;
+            background-color: rgb(238, 88, 88);
+        }
+    </style>
+</head>
+
+<body>
+    <button id="classAdd" class="btn btn-primary mb-5">add class</button>
+    <button id="removeClass" class="btn btn-primary mb-5">remove class</button>
+    <button id="toggleClass" class="btn btn-primary mb-5">toggle class</button>
+    <button id="hasClass" class="btn btn-primary mb-5">hasclass class</button>
+    <div class="box"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#classAdd').click(function () {
+            $('.box').addClass('active');
+        });
+        $('#removeClass').click(function () {
+            $('.box').removeClass('active');
+        });
+        $('#toggleClass').click(function () {
+            $('.box').toggleClass('active');
+        });
+        $('#hasClass').click(function () {
+            $('.box').hasClass('active');
+
+            console.log('hasClass', $('.box').hasClass('active'));
+
+            if ($('.box').hasClass('active')) {
+                $('.box').removeClass('active');
+            }
+            else {
+                $('.box').addClass('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

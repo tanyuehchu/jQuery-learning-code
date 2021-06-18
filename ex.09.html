@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        /* 做法二 */
+        .fonsizeS {
+            font-size: 0.8rem;
+        }
+
+        .fonsizeM {
+            font-size: 1rem;
+        }
+
+        .fonsizeL {
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="btn-group mt-3" role="group" aria-label="Basic example">
+                <button id="smallbtn" type="button" class="btn btn-info ">small</button>
+                <button id="midiumbtn" type="button" class="btn btn-info active ">midium</button>
+                <button id="largebtn" type="button" class="btn btn-info ">large</button>
+            </div>
+        </div>
+        <h1>jquery</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas voluptatum accusamus cupiditate maxime error
+            maiores blanditiis tempora itaque, voluptatibus quaerat libero dolore officiis, vel ratione assumenda! Sit
+            libero cum iure?
+            <br>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi quisquam, laudantium commodi consectetur
+            explicabo quia dolorem sunt ratione harum nihil, non odit at provident possimus enim hic aperiam, voluptate
+            itaque.
+        </p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        // $('#smallbtn').click(function () {
+        //     $('p').css('font-size', 14 + 'px')
+        // })
+        // $('#midiumbtn').click(function () {
+        //     $('p').css('font-size', 16 + 'px')
+        // })
+        // $('#largebtn').click(function () {
+        //     $('p').css('font-size', 24 + 'px')
+        // })
+
+        // $('#smallbtn').click(function () {
+        //     $('p').addClass('fonsizeS');
+        //     $('p').removeClass('fonsizeM');
+        //     $('p').removeClass('fonsizeL');
+        //     $('.btn').removeClass('active');
+        //     $(this).addClass('active')
+
+        //也可以
+        //$('p').removeClass(); $('p').addClass('fonsizeS');
+        //先移除全部，再加入
+        // })
+        // $('#midiumbtn').click(function () {
+        //     $('p').addClass('fonsizeM');
+        //     $('p').removeClass('fonsizeS');
+        //     $('p').removeClass('fonsizeL')
+        // })
+        // $('#largebtn').click(function () {
+        //     $('p').addClass('fonsizeL');
+        //     $('p').removeClass('fonsizeS');
+        //     $('p').removeClass('fonsizeM')
+        // })
+
+        //第二種方法，全部的btn綁定click()，再判斷是誰被點擊
+        $('.btn').click(function () {
+            console.log('this:', $(this).is(":contains('small')"));
+            //console.log('this', $(this) == $(".btn:contains('small')")[0]);
+
+            if ($(this).is(":contains('small')")) {
+                $('p').removeClass(); $('p').addClass('fonsizeS')
+                $('.btn').removeClass('active');
+                $(this).addClass('active')
+            }
+        })
+        $('.btn').click(function () {
+            console.log('this:', $(this).is(":contains('midium')"));
+            //console.log('this', $(this) == $(".btn:contains('small')")[0]);
+
+            if ($(this).is(":contains('midium')")) {
+                $('p').removeClass(); $('p').addClass('fonsizeM')
+                $('.btn').removeClass('active');
+                $(this).addClass('active')
+            }
+        })
+        $('.btn').click(function () {
+            console.log('this:', $(this).is(":contains('large')"));
+            //console.log('this', $(this) == $(".btn:contains('small')")[0]);
+
+            if ($(this).is(":contains('large')")) {
+                $('p').removeClass(); $('p').addClass('fonsizeL')
+                $('.btn').removeClass('active');
+                $(this).addClass('active')
+            }
+        })
+
+    </script>
+</body>
+
+</html>

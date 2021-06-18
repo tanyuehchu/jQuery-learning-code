@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+        .box {
+            height: 500px;
+            background-color: rgb(235, 235, 235);
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .violet {
+            background-color: blueviolet;
+        }
+
+        .box2 {
+            height: 500px;
+            background-color: #ccc;
+        }
+
+        #orange {
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            border: none;
+            border-radius: 50%;
+        }
+
+        #violet {
+            width: 100px;
+            height: 100px;
+            background-color: blueviolet;
+            border: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row justify-content-lg-between">
+        <div class="col-5 box"></div>
+        <div class="col-5 box2">
+            <button id="orange">orange</button>
+            <button id="violet">violet</button>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        $('#orange').click(function () {
+            //console.log('orange');
+            $('.box').removeClass('violet').addClass('orange')
+        })
+        $('#violet').click(function () {
+            //console.log('orange');
+            $('.box').removeClass('orange').addClass('violet')
+        })
+        $('.box2').click(function () {
+            console.log('remove');
+            $('.box').removeClass('orange', 'violet')
+        })
+    </script>
+</body>
+
+</html>
