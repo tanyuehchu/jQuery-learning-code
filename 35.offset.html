@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>取得絕對位置</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: antiquewhite;
+
+        }
+
+        .box2 {
+            width: 100px;
+            height: 1000px;
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="box2"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script>
+        console.log(('.box'), $('.box').offset().left);
+        console.log(('.box2'), $('.box2').offset().top);
+
+        $(window).scroll(function () {
+            console.log('scolltop', $(window).scrollTop());
+            console.log('height', $(window).height());
+            console.log('minus', $(window).scrollTop() - $(window).height());
+
+            if (($(window).scrollTop()) > $('.box').offset().top - $(window).height() + 100) {
+                $('.box').css('background-color', 'red');
+            }
+        });
+    </script>
+</body>
+
+</html>

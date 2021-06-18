@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>(sticky)</title>
+    <style>
+        /* 多元的position stastic relative absolute fixed sticky*/
+        body {
+            margin: 0;
+        }
+
+        section {
+            width: 100%;
+            height: calc(100vh - 80px);
+            background-color: beige;
+        }
+
+        .nav {
+            width: 100%;
+            height: 50px;
+            background-color: rgb(124, 124, 124);
+        }
+
+        .nav.fixed {
+            position: fixed;
+            top: 0;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>hi</section>
+    <nav class="nav">im nav</nav>
+    <div class="wrap">
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+
+        <script>
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+            }
+
+            function getRBGA() {
+                return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+            }
+
+            const elements = document.querySelectorAll('.autobg');
+
+            Array.from(elements).forEach((element, index) => {
+                element.style.backgroundImage = getRBGA();
+            });
+
+            // $('.autobg').each(function (index, currentElement) {
+            //     currentElement.style.backgroundImage = getRBGA();
+            // });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+
+            const navTop = $('.nav').offset().top
+            $(window).scroll(function () {
+                console.log($(window).scrollTop());
+                console.log($('.nav').offset().top);
+
+                if ($(window).scrollTop() >= navTop) {
+                    $('.nav').css(
+                        $('.nav').addClass('fixed')
+                    )
+                }
+                else {
+                    $('.nav').css(
+                        $('.nav').removeClass('fixed')
+                    )
+                }
+
+            })
+        </script>
+    </div>
+
+</html>
