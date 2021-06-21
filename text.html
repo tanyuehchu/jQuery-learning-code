@@ -1,0 +1,105 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>利用index().eq()创建的tab选项卡</title>
+    <style type="text/css">
+        <!--
+        * {
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #menu {
+            margin: 100px auto 0px auto;
+            width: 800px;
+            height: 30px;
+            background: #e2e2e2;
+            border-top: 1px solid #898989;
+            border-left: 1px solid #898989;
+            border-right: 1px solid #898989;
+        }
+
+        #menu li {
+            float: left;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+            cursor: hand;
+            list-style: none;
+            padding: 0px 20px;
+            background: #797077;
+            color: #fff;
+            border-bottom: none;
+        }
+
+        #menu li.hover {
+            background: #aea4ab;
+            border-bottom: none;
+        }
+
+        #menu li.selected {
+            color: #361f31;
+            background: #fff;
+            border-bottom: none;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        #tab_box {
+            margin: 0px auto 0px auto;
+            padding: 20px;
+            width: 760px;
+            height: 100px;
+            border: 1px solid #898989;
+            border-top: none;
+        }
+
+        /*   alert(hq_li.length);*/
+        -->
+    </style>
+
+</head>
+
+<body>
+    <div id="menu">
+        <ul>
+            <li class="selected">A</li>
+            <li>B</li>
+            <li>C</li>
+        </ul>
+    </div>
+    <div id="tab_box">
+        <div>首先取得點擊的li的index()的索引。</div>
+        <div class="hide">2. 用eq()選取上面的 index()取得的值。</div>
+        <div class="hide">3. 因为一一對應，所以會顯示！</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            var hq_li = $("#menu ul li");
+            hq_li.click(function () {
+                $(this).addClass("selected").siblings().removeClass("selected");
+
+                var index = hq_li.index(this);
+                $("#tab_box > div").eq(index).show().siblings().hide();
+            })
+
+            hq_li.hover(function () { $(this).addClass("hover").siblings().removeClass("hover"); })
+        })
+    </script>
+
+
+
+</body>
+
+</html>

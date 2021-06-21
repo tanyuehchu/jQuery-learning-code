@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+        }
+
+        .nav {
+            height: 100px;
+            background-color: beige;
+        }
+
+        .nav.fixed {
+            position: fixed;
+            top: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">im nav</nav>
+    <div class="wrap">
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+        <div class="box autobg"></div>
+
+        <script>
+            function getRandomInt(max) {
+                return Math.floor(Math.random() * Math.floor(max - 50) + 100);
+            }
+
+            function getRBGA() {
+                return `linear-gradient(135deg, rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.5), rgba(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)},.8)`
+            }
+
+            const elements = document.querySelectorAll('.autobg');
+
+            Array.from(elements).forEach((element, index) => {
+                element.style.backgroundImage = getRBGA();
+            });
+
+        // $('.autobg').each(function (index, currentElement) {
+        //     currentElement.style.backgroundImage = getRBGA();
+        // });
+        </script>
+
+        <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+        <script>
+            let scrollNow = $(this).scrollTop()
+            console.log(scrollNow);
+
+
+            $(window).scroll(function () {
+                console.log('hi', $(this).scrollTop());
+
+            })
+
+        </script>
+</body>
+
+</html>
