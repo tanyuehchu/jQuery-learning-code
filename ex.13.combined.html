@@ -35,7 +35,7 @@
 
             display: flex;
             width: 700%;
-            /* transition: .5s; */
+            transition: .5s;
         }
 
         .banner ul li {
@@ -298,7 +298,7 @@
     <script>
 
         let nowPage = 1; //第一張0是假圖，所以要改成1
-
+        changePage();
         $('.left-arrow-area').click(function () {
             console.log('left-arrow-area clicked');
 
@@ -389,8 +389,15 @@
 
 
         $(window).scroll(function () {
+
+            // 用 jQuery 的 each 迴圈，把每一個 .intro-wrap 拿出來檢查
+            // 這裡總共會跑五次，index 會從 0 到 4 執行五次
+            // item 則是每一個 .intro-wrap 物件
             $('.intro-wrap').each(function (index, item) {
                 console.log('item', $(item).offset().top);
+
+                // 當使用者滑動超過我們某一個 .intro-wrap 在網頁的高
+                // 表示已經到了要 show 的時機點，因此我們給他 .addClass('show')
 
                 if ($(window).scrollTop() + $(window).height() >= $(item).offset().top) {
                     $(item).addClass('show');

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html text</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <button class="btn btn-primary" id="getText">get text</button>
+        <button class="btn btn-primary" id="getHtml">get html</button>
+        <button class="btn btn-primary" id="getHtmlWriteText">get html Write text</button>
+    </div>
+
+    <h1 id="sample">Hello <span>World</span></h1>
+    <h1 id="result"></h1>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+    <script>
+        // 取值(getter) vs 設值(setter)
+        $('#getText').click(function () {
+            console.log('sample text:', $('#sample').text());
+            const sampleText = $('#sample').text();
+            $('#result').text(sampleText + '123');
+        });
+
+        $('#getHtml').click(function () {
+            const sampleHtml = $('#sample').html();
+            $('#result').html(sampleHtml + '123');
+        });
+
+        $('#getHtmlWriteText').click(function () {
+            const sampleHtml = $('#sample').html();
+            $('#result').text(sampleHtml + '123');
+        })
+
+
+    </script>
+</body>
+
+</html>
